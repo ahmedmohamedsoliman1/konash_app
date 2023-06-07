@@ -1,15 +1,14 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:konash_app/core/app_strings.dart';
-import 'package:konash_app/features/major/presentation/major_screen.dart';
+
 
 import '../../choice_locale/choice_locale_screen.dart';
 
 class SplashScreen extends StatefulWidget {
 
-  static const String routeName = AppStrings.splash_screen;
+  static const String routeName = AppStrings.splash;
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -35,7 +34,9 @@ class _SplashScreenState extends State<SplashScreen> {
               Spacer() ,
               Image(image: AssetImage ("assets/images/logo.png")) ,
               Spacer() ,
-              Text ("Powered by S_Team") ,
+              Text ("Powered by S_Team" , style: Theme.of(context).textTheme.
+                bodyMedium!.copyWith(color: Colors.black ,
+              fontWeight: FontWeight.normal),) ,
               SizedBox(height: 15,),
             ],
           ),

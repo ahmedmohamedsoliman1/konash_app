@@ -8,7 +8,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PageViewSplash extends StatelessWidget {
 
-  static const String routeName = AppStrings.pageViewSplash;
+  static const String routeName = AppStrings.pageView;
 
   PageController controller = PageController();
 

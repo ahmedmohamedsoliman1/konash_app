@@ -4,12 +4,10 @@ import 'package:konash_app/config/app_provider.dart';
 import 'package:konash_app/core/app_colors.dart';
 import 'package:konash_app/features/choice_locale/choice_locale_navigator.dart';
 import 'package:konash_app/features/choice_locale/choice_locale_view_model.dart';
-import 'package:konash_app/features/major/presentation/major_screen.dart';
 import 'package:konash_app/features/page_view_splash/page_view_splash.dart';
 import 'package:provider/provider.dart';
-
 import '../../core/app_strings.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class ChoiceLocaleScreen extends StatefulWidget {
 
@@ -65,7 +63,8 @@ class _ChoiceLocaleScreenState extends State<ChoiceLocaleScreen> implements Choi
                      )
                    ]
                  ),
-                 child: Center(child: Text ( AppStrings.english, style: Theme.of(context).textTheme.bodyMedium,)),
+                 child: Center(child: Text ( AppStrings.english, style: Theme.of(context).textTheme.bodyMedium
+                   !.copyWith(color: AppColors.primaryColor),)),
                ),
              ),
              SizedBox(height: MediaQuery.of(context).size.height*0.02,),
@@ -91,7 +90,8 @@ class _ChoiceLocaleScreenState extends State<ChoiceLocaleScreen> implements Choi
                        )
                      ]
                  ),
-                 child: Center(child: Text (AppStrings.arabic , style: Theme.of(context).textTheme.bodyMedium,)),
+                 child: Center(child: Text (AppStrings.arabic , style: Theme.of(context).textTheme.bodyMedium
+                   !.copyWith(color: AppColors.primaryColor),)),
                ),
              ),
              SizedBox(height: MediaQuery.of(context).size.height*0.02,),
@@ -117,7 +117,8 @@ class _ChoiceLocaleScreenState extends State<ChoiceLocaleScreen> implements Choi
                        )
                      ]
                  ),
-                 child: Center(child: Text (AppStrings.francais , style: Theme.of(context).textTheme.bodyMedium,)),
+                 child: Center(child: Text (AppStrings.francais , style: Theme.of(context).textTheme.bodyMedium
+                   !.copyWith(color: AppColors.primaryColor),)),
                ),
              ) ,
 
