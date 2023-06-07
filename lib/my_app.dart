@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:konash_app/config/app_provider.dart';
 import 'package:konash_app/features/login/presentation/login_screen.dart';
+import 'package:konash_app/features/login/presentation/otp_screen.dart';
 import 'package:konash_app/features/major/presentation/major_screen.dart';
 import 'package:konash_app/features/page_view_splash/page_view_splash.dart';
 import 'package:konash_app/features/splash/presentation/splash_screen.dart';
@@ -18,13 +19,14 @@ class MyApp extends StatelessWidget {
     var provider = Provider.of<AppProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: SplashScreen.routeName,
+      initialRoute: MajorScreen.routeName,
       routes: {
         SplashScreen.routeName : (context) => SplashScreen(),
         LoginScreen.routeName : (context) => LoginScreen(),
         ChoiceLocaleScreen.routeName : (context) => ChoiceLocaleScreen(),
         PageViewSplash.routeName : (context) => PageViewSplash(),
         MajorScreen.routeName : (context) => MajorScreen(),
+        OTPScreen.routeName : (context) => OTPScreen()
       },
       locale: Locale('en') ,
       theme: AppTheme.lightTheme,

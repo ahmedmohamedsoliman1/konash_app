@@ -8,4 +8,5 @@ class AppStrings {
   static const String english = "English" ;
   static const String arabic = "العربيه" ;
   static const String francais = "Francais" ;
+  static const String otp = "otp" ;
 }

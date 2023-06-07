@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "686839181740",
+    "project_id": "fatora-app-8ea78",
+    "storage_bucket": "fatora-app-8ea78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686839181740:android:bf1f6839f5d730ff19ca09",
+        "android_client_info": {
+          "package_name": "com.example.konash_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686839181740-qetho11h0cbf5uhp5ptmfavktjdub4ea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN5MSlbuCpC2OM804WzaqlRehzpkcQkI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686839181740-qetho11h0cbf5uhp5ptmfavktjdub4ea.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
