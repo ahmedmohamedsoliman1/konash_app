@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:konash_app/config/app_provider.dart';
+import 'package:konash_app/config/user_provider.dart';
 import 'package:konash_app/features/login/presentation/login_screen.dart';
 import 'package:konash_app/features/login/presentation/otp_screen.dart';
 import 'package:konash_app/features/major/presentation/major_screen.dart';
@@ -11,15 +12,13 @@ import 'config/app_theme.dart';
 import 'features/choice_locale/choice_locale_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: MajorScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName : (context) => SplashScreen(),
         LoginScreen.routeName : (context) => LoginScreen(),

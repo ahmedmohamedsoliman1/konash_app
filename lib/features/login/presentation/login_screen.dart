@@ -1,7 +1,9 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:konash_app/config/fireBase_fun.dart';
 import 'package:konash_app/core/app_strings.dart';
+import 'package:konash_app/features/login/data/user_model.dart';
 import 'package:konash_app/features/login/presentation/otp_screen.dart';
 import '../../../core/app_colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -59,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onChanged: (code){
                             countryCode = code ;
                             setState(() {
-
+                              print(countryCode);
                             });
                           },
                           // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
@@ -97,8 +99,6 @@ class _LoginScreenState extends State<LoginScreen> {
                              ),
                           ),
                         )),
-
-
                   ],
                 ),
               ),
@@ -133,6 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     "countryCode" : countryCode
                   });
                   controller.clear();
+
                 }
                }, child: Text ("Continue" , style: Theme.of(context).textTheme.bodyLarge,) , style: ElevatedButton.styleFrom(
                    backgroundColor: AppColors.primaryColor

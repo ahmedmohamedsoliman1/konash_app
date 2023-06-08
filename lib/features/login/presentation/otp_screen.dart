@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:konash_app/config/fireBase_fun.dart';
+import 'package:konash_app/config/user_provider.dart';
 import 'package:konash_app/core/app_strings.dart';
+import 'package:konash_app/features/login/data/user_model.dart';
+import 'package:provider/provider.dart';
 import '../../../core/app_colors.dart';
 import 'package:pinput/pinput.dart';
 
@@ -9,7 +13,6 @@ import '../../major/presentation/major_screen.dart';
 import 'login_screen.dart';
 
 class OTPScreen extends StatelessWidget{
-
   static const String routeName = AppStrings.otp ;
 
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -30,6 +33,7 @@ class OTPScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)!.settings.arguments as Map ;
+    var provider = Provider.of<UserProvider>(context);
    return SafeArea(
      child: Scaffold(
        body: Center (
@@ -95,6 +99,11 @@ class OTPScreen extends StatelessWidget{
 
                  // Sign the user in (or link) with the credential
                  await auth.signInWithCredential(credential);
+                 var userId = FirebaseAuth.instance.currentUser!.uid;
+                 UserModel userModel = UserModel(id: userId, phone: args["phone"]);
+                 await FireBaseFun.addUserPhoneToFireBase(userModel);
+                 var user = await FireBaseFun.getUserPhoneFromFireBase(userId);
+                 provider.userModel = user ;
                  Navigator.pushReplacementNamed(context, MajorScreen.routeName);
                }, child: Text ("Continue" , style: Theme.of(context).textTheme.bodyLarge,) , style: ElevatedButton.styleFrom(
                    backgroundColor: AppColors.primaryColor

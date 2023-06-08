@@ -20,7 +20,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
    Timer(Duration(seconds: 2) ,
-         () => Navigator.pushReplacementNamed(context, ChoiceLocaleScreen.routeName),);
+         () => Navigator.pushReplacementNamed(context,
+             ChoiceLocaleScreen.routeName),);
     super.initState();
   }
   @override
