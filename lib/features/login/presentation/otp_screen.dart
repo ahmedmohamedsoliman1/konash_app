@@ -103,8 +103,8 @@ class OTPScreen extends StatelessWidget{
                  UserModel userModel = UserModel(id: userId, phone: args["phone"]);
                  await FireBaseFun.addUserPhoneToFireBase(userModel);
                  Navigator.pushReplacementNamed(context, MajorScreen.routeName);
-                 var userData = await FireBaseFun.getUserPhoneFromFireBase(userId);
-                 provider.userModel = userData ;
+                 var user = await FireBaseFun.getUserPhoneFromFireBase(userId);
+                 provider.userModel = user ;
                }, child: Text ("Continue" , style: Theme.of(context).textTheme.bodyLarge,) , style: ElevatedButton.styleFrom(
                    backgroundColor: AppColors.primaryColor
                ),),

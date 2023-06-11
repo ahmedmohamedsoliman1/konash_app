@@ -6,12 +6,12 @@ import 'package:konash_app/config/fireBase_fun.dart';
 import 'package:konash_app/core/app_colors.dart';
 import 'package:konash_app/features/choice_locale/choice_locale_navigator.dart';
 import 'package:konash_app/features/choice_locale/choice_locale_view_model.dart';
-import 'package:konash_app/features/login/data/user_model.dart';
 import 'package:konash_app/features/major/presentation/major_screen.dart';
 import 'package:konash_app/features/page_view_splash/page_view_splash.dart';
 import 'package:provider/provider.dart';
 import '../../config/user_provider.dart';
 import '../../core/app_strings.dart';
+import '../login/data/user_model.dart';
 
 
 class ChoiceLocaleScreen extends StatefulWidget {
@@ -135,14 +135,12 @@ class _ChoiceLocaleScreenState extends State<ChoiceLocaleScreen> implements Choi
                   provider.changeLang(viewModel.newLangFun(
                       isTabbed1, isTabbed2, isTabbed3));
                   var userId = FirebaseAuth.instance.currentUser?.uid;
-                  print(userId);
                   if (userId != null){
                     var userData = await FireBaseFun.getUserPhoneFromFireBase(userId);
                     navigateToMajor(userData!);
                   }else {
-                    navigateToPageView();
+                    navigateToPageViewSplash();
                   }
-
 
                }, child: Text ("Validate" ,
                  style: Theme.of(context).textTheme.bodyLarge,) , style: ElevatedButton.styleFrom(
@@ -159,14 +157,14 @@ class _ChoiceLocaleScreenState extends State<ChoiceLocaleScreen> implements Choi
   }
 
   @override
-  void navigateToMajor(UserModel userModel) {
-    var provider2 = Provider.of<UserProvider>(context , listen: false);
-    provider2.userModel = userModel ;
-    Navigator.pushReplacementNamed(context, MajorScreen.routeName);
-
-  }
-  @override
-  void navigateToPageView() {
+  void navigateToPageViewSplash() {
     Navigator.pushReplacementNamed(context, PageViewSplash.routeName);
+  }
+
+  @override
+  void navigateToMajor(UserModel userModel) {
+   var provider = Provider.of<UserProvider>(context, listen: false);
+   provider.userModel = userModel ;
+   Navigator.pushReplacementNamed(context, MajorScreen.routeName);
   }
 }
