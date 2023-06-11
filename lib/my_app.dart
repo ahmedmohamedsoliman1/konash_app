@@ -5,6 +5,7 @@ import 'package:konash_app/config/user_provider.dart';
 import 'package:konash_app/features/login/presentation/login_screen.dart';
 import 'package:konash_app/features/login/presentation/otp_screen.dart';
 import 'package:konash_app/features/major/presentation/major_screen.dart';
+import 'package:konash_app/features/more/presentation/screens/business_card_screen.dart';
 import 'package:konash_app/features/page_view_splash/page_view_splash.dart';
 import 'package:konash_app/features/splash/presentation/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         ChoiceLocaleScreen.routeName : (context) => ChoiceLocaleScreen(),
         PageViewSplash.routeName : (context) => PageViewSplash(),
         MajorScreen.routeName : (context) => MajorScreen(),
-        OTPScreen.routeName : (context) => OTPScreen()
+        OTPScreen.routeName : (context) => OTPScreen() ,
+        BusinessCardScreen.routeName : (context) => BusinessCardScreen(),
       },
       locale: Locale('en') ,
       theme: AppTheme.lightTheme,

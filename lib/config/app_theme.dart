@@ -22,6 +22,14 @@ class AppTheme {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: AppColors.primaryColor ,
       unselectedItemColor: Colors.black26
+    ) ,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent ,
+      centerTitle: true ,
+      elevation: 0,
+      iconTheme: IconThemeData(
+        color: AppColors.primaryColor
+      )
     )
   );
 }
