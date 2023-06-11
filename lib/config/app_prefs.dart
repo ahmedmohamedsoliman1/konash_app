@@ -4,8 +4,8 @@ class AppPrefs {
 
   static late SharedPreferences prefs;
 
-  static Future  initPrefs ()async{
-   prefs = await SharedPreferences.getInstance();
+  static Future initPrefs ()async{
+    prefs = await SharedPreferences.getInstance();
   }
 
  /// saveCardData
@@ -28,8 +28,9 @@ class AppPrefs {
   /// getCardData
 
 
-   static String? getNameCard (){
-     return prefs.getString("name");
+   static String? getNameCard (String key){
+   return prefs.getString("name");
+
    }
 
    static String? getDescriptionCard (){
