@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:konash_app/config/app_provider.dart';
+import 'package:konash_app/config/fireBase_fun.dart';
 import 'package:konash_app/core/app_colors.dart';
 import 'package:konash_app/features/choice_locale/choice_locale_navigator.dart';
 import 'package:konash_app/features/choice_locale/choice_locale_view_model.dart';
+import 'package:konash_app/features/login/data/user_model.dart';
 import 'package:konash_app/features/major/presentation/major_screen.dart';
 import 'package:konash_app/features/page_view_splash/page_view_splash.dart';
 import 'package:provider/provider.dart';
@@ -128,10 +131,19 @@ class _ChoiceLocaleScreenState extends State<ChoiceLocaleScreen> implements Choi
 
              if (isTabbed1 || isTabbed2 || isTabbed3) SizedBox(
                width: MediaQuery.of(context).size.width*0.7,
-               child: ElevatedButton(onPressed: (){
+               child: ElevatedButton(onPressed: ()async{
                   provider.changeLang(viewModel.newLangFun(
                       isTabbed1, isTabbed2, isTabbed3));
-                  navigateToPageViewSplash();
+                  var userId = FirebaseAuth.instance.currentUser?.uid;
+                  print(userId);
+                  if (userId != null){
+                    var userData = await FireBaseFun.getUserPhoneFromFireBase(userId);
+                    navigateToMajor(userData!);
+                  }else {
+                    navigateToPageView();
+                  }
+
+
                }, child: Text ("Validate" ,
                  style: Theme.of(context).textTheme.bodyLarge,) , style: ElevatedButton.styleFrom(
                    backgroundColor: AppColors.primaryColor
@@ -147,10 +159,14 @@ class _ChoiceLocaleScreenState extends State<ChoiceLocaleScreen> implements Choi
   }
 
   @override
-  void navigateToPageViewSplash() {
+  void navigateToMajor(UserModel userModel) {
     var provider2 = Provider.of<UserProvider>(context , listen: false);
-    provider2.user != null ?
-    Navigator.pushReplacementNamed(context, MajorScreen.routeName):
+    provider2.userModel = userModel ;
+    Navigator.pushReplacementNamed(context, MajorScreen.routeName);
+
+  }
+  @override
+  void navigateToPageView() {
     Navigator.pushReplacementNamed(context, PageViewSplash.routeName);
   }
 }

@@ -9,4 +9,5 @@ class AppStrings {
   static const String arabic = "العربيه" ;
   static const String francais = "Francais" ;
   static const String otp = "otp" ;
+  static const String choice_create_import = "choice_create_import";
 }
