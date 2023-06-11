@@ -10,4 +10,5 @@ class AppStrings {
   static const String francais = "Francais" ;
   static const String otp = "otp" ;
   static const String choice_create_import = "choice_create_import";
+  static const String business_card = "business_card";
 }
